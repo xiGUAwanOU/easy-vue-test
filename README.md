@@ -1,2 +1,3 @@
-# easy-vue-test
+# Easy Vue Test (evt)
+
 A one-layer test utilities set for Vue.js which makes unit tests easier.
