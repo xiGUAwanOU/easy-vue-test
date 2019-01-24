@@ -17,7 +17,7 @@ const config = {
 }
 
 export default class EasyVueTest {
-  static extend(extraMixins) {
+  static extend(...extraMixins) {
     config.extraMixins = extraMixins
   }
 
