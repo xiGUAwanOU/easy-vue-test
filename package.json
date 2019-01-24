@@ -1,0 +1,30 @@
+{
+  "name": "easy-vue-test",
+  "version": "0.0.1",
+  "description": "A simple utilities set for Vue.js which makes unit tests easier.",
+  "main": "./src/index.js",
+  "scripts": {
+    "lint": "eslint --ext .js src test",
+    "test": "jest --no-config"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xiGUAwanOU/easy-vue-test.git"
+  },
+  "author": "xiGUAwanOU",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xiGUAwanOU/easy-vue-test/issues"
+  },
+  "homepage": "https://github.com/xiGUAwanOU/easy-vue-test#readme",
+  "devDependencies": {
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.12.1",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.15.0",
+    "eslint-plugin-node": "^8.0.1",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0"
+  },
+  "dependencies": {}
+}
