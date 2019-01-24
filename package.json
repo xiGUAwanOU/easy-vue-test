@@ -5,7 +5,7 @@
   "main": "./src/index.js",
   "scripts": {
     "lint": "eslint --ext .js src test",
-    "test": "jest --no-config"
+    "test": "jest --no-cache"
   },
   "repository": {
     "type": "git",
@@ -18,13 +18,71 @@
   },
   "homepage": "https://github.com/xiGUAwanOU/easy-vue-test#readme",
   "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.3.1",
+    "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
+    "babel-jest": "^23.6.0",
     "eslint": "^5.12.1",
     "eslint-config-standard": "^12.0.0",
     "eslint-plugin-import": "^2.15.0",
     "eslint-plugin-node": "^8.0.1",
     "eslint-plugin-promise": "^4.0.1",
-    "eslint-plugin-standard": "^4.0.0"
+    "eslint-plugin-standard": "^4.0.0",
+    "jest": "^23.6.0",
+    "vue": "^2.5.22"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ]
+  },
+  "jest": {
+    "clearMocks": true,
+    "moduleFileExtensions": [
+      "js"
+    ],
+    "moduleNameMapper": {
+      "@/(.*)": "<rootDir>/src/$1.js",
+      "@test/(.*)": "<rootDir>/test/$1.js"
+    },
+    "testMatch": [
+      "**/test/**/*.spec.js"
+    ]
+  },
+  "eslintConfig": {
+    "parserOptions": {
+      "parser": "babel-eslint"
+    },
+    "extends": [
+      "eslint:recommended",
+      "standard"
+    ],
+    "env": {
+      "browser": true,
+      "jest": true
+    },
+    "rules": {
+      "max-len": [
+        "error",
+        {
+          "code": 120
+        }
+      ],
+      "object-property-newline": [
+        "error",
+        {
+          "allowAllPropertiesOnSameLine": true
+        }
+      ],
+      "space-before-function-paren": [
+        "error",
+        {
+          "named": "never",
+          "asyncArrow": "always"
+        }
+      ]
+    }
+  }
 }
