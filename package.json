@@ -65,25 +65,9 @@
       "jest": true
     },
     "rules": {
-      "max-len": [
-        "error",
-        {
-          "code": 120
-        }
-      ],
-      "object-property-newline": [
-        "error",
-        {
-          "allowAllPropertiesOnSameLine": true
-        }
-      ],
-      "space-before-function-paren": [
-        "error",
-        {
-          "named": "never",
-          "asyncArrow": "always"
-        }
-      ]
+      "max-len": [ "error", { "code": 120 } ],
+      "object-property-newline": [ "error", { "allowAllPropertiesOnSameLine": true } ],
+      "space-before-function-paren": [ "error", { "named": "never", "asyncArrow": "always" } ]
     }
   }
 }
