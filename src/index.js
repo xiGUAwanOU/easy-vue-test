@@ -1,5 +1,3 @@
-import Vue from 'vue'
-
 import DomUtilities from './mixins/DomUtilities'
 import UntilAsyncTasksDone from './mixins/UntilAsyncTasksDone'
 import TextUtilities from './mixins/TextUtilities'
@@ -13,17 +11,23 @@ import LifecycleUtilities from './mixins/LifecycleUtilities'
 import DebugUtilities from './mixins/DebugUtilities'
 
 const config = {
+  vue: null,
+  router: null,
   extraMixins: []
 }
 
 export default class EasyVueTest {
-  static extend(...extraMixins) {
-    config.extraMixins = extraMixins
+  static configure(newConfig) {
+    Object.assign(config, newConfig)
   }
 
   static mounted(component, propsData = {}) {
-    const Ctor = Vue.extend(component)
-    const vm = new Ctor({ propsData }).$mount()
+    const params = {
+      propsData,
+      router: config.router || undefined
+    }
+    const Ctor = config.vue.extend(component)
+    const vm = new Ctor(params).$mount()
 
     return new Promise((resolve) => {
       setTimeout(() => {

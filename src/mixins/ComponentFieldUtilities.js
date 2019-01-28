@@ -28,12 +28,12 @@ export default {
     return this
   },
 
-  setMethod(methodName, implementation) {
-    this.vm[methodName] = implementation
-  },
-
   getMethod(methodName) {
     return this.vm[methodName]
+  },
+
+  setMethod(methodName, implementation) {
+    this.vm[methodName] = implementation
   },
 
   invokeMethod(methodName, ...params) {

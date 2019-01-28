@@ -10,12 +10,16 @@ const component = Vue.component('message', {
   `
 })
 
-describe('ExtraMixins', () => {
+describe('Configurations', () => {
   beforeEach(() => {
-    EasyVueTest.extend({
-      getTextContentsOfAllParagraphs() {
-        return this.getTextContents('p')
-      }
+    EasyVueTest.configure({
+      extraMixins: [
+        {
+          getTextContentsOfAllParagraphs() {
+            return this.getTextContents('p')
+          }
+        }
+      ]
     })
   })
 

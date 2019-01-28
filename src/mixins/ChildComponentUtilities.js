@@ -2,22 +2,12 @@ import _ from 'lodash'
 import EasyVueTest from '../index'
 
 export default {
-  getWrappedChildByName(childComponentName = null, index = 0) {
-    let child = getFilteredChildrenByName.call(this, childComponentName)[index]
+  getWrappedChildByName(childComponentName = null) {
+    let child = getFilteredChildrenByNameRecursively.call(this, childComponentName)[0]
     return new EasyVueTest(child)
   },
 
   getWrappedChildrenByName(childComponentName = null) {
-    return getFilteredChildrenByName
-      .call(this, childComponentName).map(child => new EasyVueTest(child))
-  },
-
-  getWrappedChildByNameRecursively(childComponentName = null, index = 0) {
-    let child = getFilteredChildrenByNameRecursively.call(this, childComponentName)[index]
-    return new EasyVueTest(child)
-  },
-
-  getWrappedChildrenByNameRecursively(childComponentName = null) {
     return getFilteredChildrenByNameRecursively
       .call(this, childComponentName).map(child => new EasyVueTest(child))
   },
@@ -33,13 +23,6 @@ export default {
   getWrappedChildByRef(ref) {
     return new EasyVueTest(this.vm.$refs[ref])
   }
-}
-
-function getFilteredChildrenByName(childComponentName = null) {
-  return _.filter(
-    this.vm.$children,
-    childComponent => childComponentName === null || childComponent.$options._componentTag === childComponentName
-  )
 }
 
 function getFilteredChildrenByNameRecursively(childComponentName = null) {
