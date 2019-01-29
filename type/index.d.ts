@@ -15,7 +15,7 @@ interface EasyVueTest extends
     DebugUtilities {}
 
 interface UntilAsyncTasksDone {
-  untilAsyncTasksDone(timeout: number): Promise<any>;
+  untilAsyncTasksDone(timeout?: number): Promise<any>;
 }
 
 interface DomUtilities {
