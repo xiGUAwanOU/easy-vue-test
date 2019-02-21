@@ -1,3 +1,5 @@
+import _ from 'lodash'
+
 import DomUtilities from './mixins/DomUtilities'
 import UntilAsyncTasksDone from './mixins/UntilAsyncTasksDone'
 import TextUtilities from './mixins/TextUtilities'
@@ -13,6 +15,7 @@ import DebugUtilities from './mixins/DebugUtilities'
 
 const config = {
   vue: null,
+  defaultParams: {},
   extraMixins: []
 }
 
@@ -21,9 +24,12 @@ export default class EasyVueTest {
     Object.assign(config, newConfig)
   }
 
-  static mounted(component, params = {}) {
+  static mounted(component, params) {
+    const defaultParams = _.isFunction(config.defaultParams) ? config.defaultParams() : config.defaultParams
+    const resultantParams = Object.assign(defaultParams, params)
+
     const Ctor = config.vue.extend(component)
-    const vm = new Ctor(params).$mount()
+    const vm = new Ctor(resultantParams).$mount()
 
     return new Promise((resolve) => {
       setTimeout(() => {
