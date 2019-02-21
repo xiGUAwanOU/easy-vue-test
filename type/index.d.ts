@@ -2,17 +2,18 @@ import { VueConstructor } from "vue";
 import VueRouter from "vue-router";
 
 interface EasyVueTest extends
-    UntilAsyncTasksDone,
-    DomUtilities,
-    TextUtilities,
-    HtmlUtilities,
-    StyleUtilities,
-    DomEventUtilities,
-    ComponentFieldUtilities,
-    ChildComponentUtilities,
-    VueEventUtilities,
-    LifecycleUtilities,
-    DebugUtilities {}
+  UntilAsyncTasksDone,
+  DomUtilities,
+  TextUtilities,
+  HtmlUtilities,
+  StyleUtilities,
+  DomEventUtilities,
+  FormInteractionUtilities,
+  ComponentFieldUtilities,
+  ChildComponentUtilities,
+  VueEventUtilities,
+  LifecycleUtilities,
+  DebugUtilities { }
 
 interface UntilAsyncTasksDone {
   untilAsyncTasksDone(timeout?: number): Promise<any>;
@@ -52,6 +53,11 @@ interface DomEventUtilities {
   keyPress(selector: string | null, key?: string): EasyVueTest;
   keyDown(selector: string | null, key?: string): EasyVueTest;
   keyUp(selector: string | null, key?: string): EasyVueTest;
+}
+
+interface FormInteractionUtilities {
+  getTextInputValue(selector: string | null): string;
+  setTextInputValue(selector: string | null, text: string): EasyVueTest;
 }
 
 interface ComponentFieldUtilities {

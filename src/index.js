@@ -4,6 +4,7 @@ import TextUtilities from './mixins/TextUtilities'
 import HtmlUtilities from './mixins/HtmlUtilities'
 import StyleUtilities from './mixins/StyleUtilities'
 import DomEventUtilities from './mixins/DomEventUtilities'
+import FormInteractionUtilities from './mixins/FormInteractionUtilities'
 import ComponentFieldUtilities from './mixins/ComponentFieldUtilities'
 import ChildComponentUtilities from './mixins/ChildComponentUtilities'
 import VueEventUtilities from './mixins/VueEventUtilities'
@@ -49,6 +50,7 @@ export default class EasyVueTest {
       HtmlUtilities,
       StyleUtilities,
       DomEventUtilities,
+      FormInteractionUtilities,
 
       // Basic Vue.js utilities:
       ComponentFieldUtilities,

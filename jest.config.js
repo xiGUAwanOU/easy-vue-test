@@ -8,5 +8,6 @@ module.exports = {
   },
   testMatch: [
     '**/test/**/*.spec.js'
-  ]
+  ],
+  setupFiles: [ '<rootDir>/test/setup.js' ]
 }
