@@ -8,7 +8,7 @@
     "build": "babel src --out-dir lib",
     "install": "npm run build",
     "lint": "eslint --ext .js src test",
-    "test": "jest --no-cache"
+    "test": "tsc type/index.d.ts && jest --no-cache"
   },
   "repository": {
     "type": "git",
