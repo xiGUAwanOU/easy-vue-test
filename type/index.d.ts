@@ -94,9 +94,9 @@ interface DebugUtilities {
 }
 
 interface EasyVueTestConfig {
-  vue: VueConstructor;
-  defaultParams?: () => any | any;
+  vue?: VueConstructor;
   extraMixins?: any[];
+  defaultParams?: () => any | any;
 }
 
 interface EasyVueTestGlobal {
