@@ -13,7 +13,6 @@ import DebugUtilities from './mixins/DebugUtilities'
 
 const config = {
   vue: null,
-  router: null,
   extraMixins: []
 }
 
@@ -22,11 +21,7 @@ export default class EasyVueTest {
     Object.assign(config, newConfig)
   }
 
-  static mounted(component, propsData = {}) {
-    const params = {
-      propsData,
-      router: config.router || undefined
-    }
+  static mounted(component, params = {}) {
     const Ctor = config.vue.extend(component)
     const vm = new Ctor(params).$mount()
 

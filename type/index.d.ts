@@ -1,5 +1,4 @@
 import { VueConstructor } from "vue";
-import VueRouter from "vue-router";
 
 interface EasyVueTest extends
   UntilAsyncTasksDone,
@@ -65,11 +64,12 @@ interface ComponentFieldUtilities {
   setData(dataFieldName: string, value: any): EasyVueTest;
   getComputed(computedFieldName: string): any;
   setComputed(computedFieldName: string, value: any): EasyVueTest;
-  getProperty(propFieldName: string): any;
-  setProperty(propFieldName: string, value: any): EasyVueTest;
+  getProp(propFieldName: string): any;
+  setProp(propFieldName: string, value: any): EasyVueTest;
   getMethod(methodName: string): any;
   setMethod(methodName: string, implementation: any): EasyVueTest;
   invokeMethod(methodName: string, ...params: any[]): any;
+  get$(dollarFieldName: string): any;
 }
 
 interface ChildComponentUtilities {
@@ -95,13 +95,12 @@ interface DebugUtilities {
 
 interface EasyVueTestConfig {
   vue: VueConstructor;
-  router?: VueRouter;
   extraMixins?: any[];
 }
 
 interface EasyVueTestGlobal {
   configure(newConfig: EasyVueTestConfig): void;
-  mounted(component: VueConstructor, propsData: any): Promise<EasyVueTest>;
+  mounted(component: VueConstructor, params?: any): Promise<EasyVueTest>;
 }
 
 declare const EasyVueTest: EasyVueTestGlobal;

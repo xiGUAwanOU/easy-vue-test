@@ -19,11 +19,11 @@ export default {
     return this
   },
 
-  getProperty(propFieldName) {
+  getProp(propFieldName) {
     return _.get(this.vm.$props, propFieldName)
   },
 
-  setProperty(propFieldName, value) {
+  setProp(propFieldName, value) {
     _.set(this.vm.$props, propFieldName, value)
     return this
   },
@@ -38,5 +38,9 @@ export default {
 
   invokeMethod(methodName, ...params) {
     return this.getMethod(methodName)(...params)
+  },
+
+  get$(instanceFieldName) {
+    return _.get(this.vm, `${instanceFieldName}`)
   }
 }
