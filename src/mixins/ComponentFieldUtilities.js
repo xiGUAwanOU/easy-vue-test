@@ -41,6 +41,6 @@ export default {
   },
 
   get$(instanceFieldName) {
-    return _.get(this.vm, `${instanceFieldName}`)
+    return _.get(this.vm, `$${instanceFieldName}`)
   }
 }
