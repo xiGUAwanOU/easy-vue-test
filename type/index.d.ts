@@ -80,7 +80,6 @@ interface DebugUtilities {
 }
 
 interface EasyVueTestConfig {
-  vue?: VueConstructor;
   extraMixins?: any[];
   defaultParams?: () => any | any;
 }

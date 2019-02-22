@@ -1,5 +1,3 @@
-import _ from 'lodash'
-
 import DomUtilities from './mixins/DomUtilities'
 import UntilAsyncTasksDone from './mixins/UntilAsyncTasksDone'
 import TextUtilities from './mixins/TextUtilities'
@@ -13,9 +11,10 @@ import VueEventUtilities from './mixins/VueEventUtilities'
 import LifecycleUtilities from './mixins/LifecycleUtilities'
 import DebugUtilities from './mixins/DebugUtilities'
 
+import getClonedVue from './utils/VueCloner'
+
 const config = {
-  vue: null,
-  defaultParams: {},
+  defaultOptions: {},
   extraMixins: []
 }
 
@@ -24,17 +23,26 @@ export default class EasyVueTest {
     Object.assign(config, newConfig)
   }
 
-  static mounted(component, params) {
-    const defaultParams = _.isFunction(config.defaultParams) ? config.defaultParams() : config.defaultParams
-    const resultantParams = Object.assign(defaultParams, params)
+  static mounted(component, options) {
+    const clonedVue = getClonedVue()
 
-    const Ctor = config.vue.extend(component)
-    const vm = new Ctor(resultantParams).$mount()
+    const defaultOptions = (typeof config.defaultOptions === 'function')
+      ? config.defaultOptions()
+      : config.defaultOptions
+    const resultantOptions = Object.assign({}, defaultOptions, options)
+
+    if (resultantOptions.stubs) {
+      component.mixin({
+        beforeCreate() { Object.assign(this.$options.components, resultantOptions.stubs) }
+      })
+    }
+
+    const Ctor = clonedVue.extend(component)
+    const vm = new Ctor(resultantOptions)
+    vm.$mount()
 
     return new Promise((resolve) => {
-      setTimeout(() => {
-        resolve(new EasyVueTest(vm))
-      }, 0)
+      setTimeout(() => { resolve(new EasyVueTest(vm)) }, 0)
     })
   }
 
