@@ -81,7 +81,7 @@ interface DebugUtilities {
 
 interface EasyVueTestConfig {
   extraMixins?: any[];
-  defaultParams?: () => any | any;
+  defaultOptions?: () => any | any;
 }
 
 export interface EasyVueTestWrapper extends
