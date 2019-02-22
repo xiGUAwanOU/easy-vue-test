@@ -1,7 +1,7 @@
 import EasyVueTest from '@/index'
 import Vue from 'vue'
 
-const mouseEventHandleableComponent = Vue.component('mouseEventHandleable', {
+const mouseEventHandleableComponent = Vue.component('MouseEventHandler', {
   template: `
   <div>
     <button @click="clickEventHandler" id="click"></button>
@@ -21,7 +21,7 @@ const mouseEventHandleableComponent = Vue.component('mouseEventHandleable', {
   }
 })
 
-const keyEventHandleableComponent = Vue.component('keyEventHandleable', {
+const keyEventHandleableComponent = Vue.component('KeyEventHandler', {
   template: `
   <div>
     <button @keypress="keyEventHandler" id="keypress"></button>
