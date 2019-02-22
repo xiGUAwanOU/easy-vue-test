@@ -1,7 +1,7 @@
 import EasyVueTest from '@/index'
 import Vue from 'vue'
 
-const component = Vue.component('message', {
+const component = Vue.component('TestComponent', {
   template: `
   <div>
     <ol id="list">

@@ -1,11 +1,11 @@
 import EasyVueTest from '@/index'
 import Vue from 'vue'
 
-const childComponent = Vue.component('child', {
+const childComponent = Vue.component('Child', {
   template: '<div><p>Hello world!</p></div>'
 })
 
-const component = Vue.component('parent', {
+const component = Vue.component('Parent', {
   template: `
   <div>
     <child-component id="child" @event="onVueEventFromChild"></child-component>
@@ -13,19 +13,16 @@ const component = Vue.component('parent', {
     <button @click="$emit('clicked', 'Mouse button clicked!')">Click me!</button>
   </div>
   `,
-
+  components: {
+    childComponent
+  },
   data() {
     return { message: '' }
   },
-
   methods: {
     onVueEventFromChild() {
       this.message = 'Vue event received!'
     }
-  },
-
-  components: {
-    childComponent
   }
 })
 

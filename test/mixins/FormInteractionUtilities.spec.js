@@ -1,7 +1,7 @@
 import EasyVueTest from '@/index'
 import Vue from 'vue'
 
-const component = Vue.component('TestVueComponent', {
+const component = Vue.component('TestComponent', {
   template: `
   <div>
     <input class="text-input" type="text" v-model="text"/>

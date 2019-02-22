@@ -1,18 +1,12 @@
 import EasyVueTest from '@/index'
 import Vue from 'vue'
 
-const childComponent = Vue.component('child', {
-  template: `
-  <div><p>Hello world!</p></div>
-  `
+const childComponent = Vue.component('Child', {
+  template: '<div><p>Hello world!</p></div>'
 })
 
-const component = Vue.component('parent', {
-  template: `
-  <div>
-    <child-component id="child"></child-component>
-  </div>
-  `,
+const component = Vue.component('Parent', {
+  template: '<div><child-component id="child"></child-component></div>',
   components: {
     childComponent
   }
