@@ -68,7 +68,7 @@ interface ChildComponentUtilities {
 
 interface VueEventUtilities {
   setVueEventListener(eventName: string, listener: any): EasyVueTestWrapper;
-  emitVueEvent(eventName: string, eventData: any): EasyVueTestWrapper;
+  emitVueEvent(eventName: string, ...params: any[]): EasyVueTestWrapper;
 }
 
 interface LifecycleUtilities {
