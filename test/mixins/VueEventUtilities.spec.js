@@ -46,9 +46,9 @@ describe('VueEventUtilities', () => {
     const eventListener = jest.fn()
     wrapper.setVueEventListener('triggered', eventListener)
 
-    await wrapper.emitVueEvent('triggered', 'Hello world!').untilAsyncTasksDone()
+    await wrapper.emitVueEvent('triggered', 'foo', 'bar').untilAsyncTasksDone()
 
-    expect(eventListener).toHaveBeenCalledWith('Hello world!')
+    expect(eventListener).toHaveBeenCalledWith('foo', 'bar')
   })
 
   it('triggers event from child element', async () => {

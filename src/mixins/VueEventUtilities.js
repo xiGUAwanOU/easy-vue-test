@@ -4,8 +4,8 @@ export default {
     return this
   },
 
-  emitVueEvent(eventName, eventData) {
-    this.vm.$emit(eventName, eventData)
+  emitVueEvent(eventName, ...eventData) {
+    this.vm.$emit(eventName, ...eventData)
     return this
   }
 }
