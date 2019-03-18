@@ -56,6 +56,7 @@ interface ComponentFieldUtilities {
   setMethod(methodName: string, implementation: any): EasyVueTestWrapper;
   invokeMethod(methodName: string, ...params: any[]): any;
   get$(dollarFieldName: string): any;
+  set$(dollarFieldName: string, value: any): EasyVueTestWrapper;
 }
 
 interface ChildComponentUtilities {

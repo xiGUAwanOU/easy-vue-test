@@ -42,5 +42,10 @@ export default {
 
   get$(instanceFieldName) {
     return _.get(this.vm, `$${instanceFieldName}`)
+  },
+
+  set$(instanceFieldName, value) {
+    _.set(this.vm, `$${instanceFieldName}`, value)
+    return this
   }
 }
