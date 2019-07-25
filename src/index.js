@@ -1,3 +1,5 @@
+import Vue from 'vue'
+
 import DomUtilities from './mixins/DomUtilities'
 import UntilAsyncTasksDone from './mixins/UntilAsyncTasksDone'
 import TextUtilities from './mixins/TextUtilities'
@@ -44,6 +46,15 @@ export default class EasyVueTest {
     return new Promise((resolve) => {
       setTimeout(() => { resolve(new EasyVueTest(vm)) }, 0)
     })
+  }
+
+  static mountedAsMixin(mixin, options) {
+    const component = Vue.component('MixinComponent', {
+      render: (h) => h(),
+      mixins: [mixin]
+    })
+
+    return EasyVueTest.mounted(component, options)
   }
 
   constructor(vm) {

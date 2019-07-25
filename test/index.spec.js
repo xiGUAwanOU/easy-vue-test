@@ -19,6 +19,17 @@ const parentComponent = Vue.component('Parent', {
   }
 })
 
+const mixinComponent = {
+  props: {
+    message: { type: String, default: 'foo' }
+  },
+  data() {
+    return {
+      anotherMessage: 'bar'
+    }
+  }
+}
+
 describe('EasyVueTest', () => {
   it('mounts component', async () => {
     const easy = await EasyVueTest.mounted(parentComponent)
@@ -55,10 +66,22 @@ describe('EasyVueTest', () => {
   })
 
   it('mounts component with stubbed child', async () => {
-    const easy = await EasyVueTest.mounted(parentComponent, { stubs: {
-      childComponent: childComponentStub
-    } })
+    const easy = await EasyVueTest.mounted(parentComponent, {
+      stubs: { childComponent: childComponentStub }
+    })
     expect(easy.getElement('.child')).toBeNull()
     expect(easy.getElement('.child-stub')).not.toBeNull()
+  })
+
+  it('mounts mixin', async () => {
+    const easy = await EasyVueTest.mountedAsMixin(mixinComponent)
+    expect(easy.getData('anotherMessage')).toEqual('bar')
+  })
+
+  it('mounts mixin with propsData', async () => {
+    const easy = await EasyVueTest.mountedAsMixin(mixinComponent, {
+      propsData: { message: 'baz' }
+    })
+    expect(easy.getProp('message')).toEqual('baz')
   })
 })

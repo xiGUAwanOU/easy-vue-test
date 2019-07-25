@@ -102,6 +102,7 @@ export interface EasyVueTestWrapper extends
 export interface EasyVueTestGlobal {
   configure(newConfig: EasyVueTestConfig): void;
   mounted(component: VueConstructor, params?: any): Promise<EasyVueTestWrapper>;
+  mountedAsMixin(mixin: VueConstructor, params?: any): Promise<EasyVueTestWrapper>;
 }
 
 declare const EasyVueTest: EasyVueTestGlobal;
