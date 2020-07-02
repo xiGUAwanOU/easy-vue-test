@@ -6,7 +6,7 @@
   "typings": "./type/index.d.ts",
   "scripts": {
     "build": "babel src --out-dir lib",
-    "install": "npm run build",
+    "postinstall": "npm run build",
     "lint": "eslint --ext .js src test",
     "test": "tsc type/index.d.ts && jest --no-cache"
   },
